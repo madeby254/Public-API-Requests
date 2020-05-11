@@ -213,3 +213,5 @@ document.querySelectorAll('#modal-next').forEach(nxtModalBtn => {
      })
    })
  
+// Called the necessary functions 
+
