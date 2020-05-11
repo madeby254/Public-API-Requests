@@ -73,3 +73,53 @@ function searchFilter() {
       filterNames(nameInput);
     });
   }
+
+
+  // Generate HTML for profile 
+
+  function generateHTML(data) {
+    searchContainer.innerHTML = `
+    <form action="#" method="get">
+      <input type="search" id="search-input" class="search-input" placeholder="Search...">
+      <input type="submit" value="&#x1F50D;" id="search-submit" class="search-submit">
+    </form>`;
+    data.map(person => {
+      const section = document.createElement('section');
+      gallery.appendChild(section);
+      section.innerHTML = `
+        <div class="card">
+          <div class="card-img-container">
+            <img class="card-img" src=${person.image} alt=${person.name}>
+          </div>
+          <div class="card-info-container">
+            <h3 id="name" class="card-name cap">${person.name} </h3>
+              <p class="card-text">${person.email}</p>
+              <p class="card-text cap">${person.location}</p>
+          </div>
+        </div>
+        `;
+        const modalDiv = document.createElement('div');
+        modalDiv.className +="modal-container"
+        gallery.appendChild(modalDiv);
+        modalDiv.innerHTML = `
+            <div class="modal" id=${person.dob}>
+              <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
+               <div class="modal-info-container">
+                                <img class="modal-img" src=${person.image} alt=${person.name}>
+                                <h3 id="name" class="modal-name cap">${person.name}</h3>
+                                <p class="modal-text">${person.email}</p>
+                                <p class="modal-text cap">${person.location}</p>
+                                <hr>
+                                <p class="modal-text">${person.phone}</p>
+                                <p class="modal-text cap">${person.address}</p>
+                                <p class="modal-text">Birthday: ${person.dob}</p>
+                </div>
+               </div>
+                        <div class="modal-btn-container">
+                            <button type="button" id="modal-prev" class="modal-prev btn">Prev</button>
+                            <button type="button" id="modal-next" class="modal-next btn">Next</button>
+                        </div>
+          `;
+          modalDiv.style.display="none";
+        });
+  }
