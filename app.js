@@ -128,7 +128,7 @@ function searchFilter() {
 
   function modalHandler() {
     const modals = document.querySelectorAll('.modal-container');
-    /*Create an array of names from modal profiles 
+    /* from modal profiles 
       */
     function createModalNameArr() {
       let nameArr = [];
@@ -139,6 +139,7 @@ function searchFilter() {
       return nameArr;
     };
     const modalNameArr = createModalNameArr();
+
   // Function to match 
      function modalMatch(findName) {
       modals.forEach(modal => {
@@ -146,4 +147,4 @@ function searchFilter() {
         findName===modalName ? modal.style.display='block'  : modal.style.display = 'none';
       });
      }
-  
+    }
