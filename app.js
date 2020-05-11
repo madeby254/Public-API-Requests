@@ -49,3 +49,14 @@ async function fetchData(url) {
       console.log('Looks like there was a problem getting user profiles!',error);
     }
   }
+
+  // Function for Profile Name to input 
+  function filterCardNames(input) {
+    let names = document.querySelectorAll( '.card-name');
+    names.forEach(name => {
+      genName = name.innerText.toLowerCase();
+      genName.match(input) ? name.parentNode.parentNode.style.display= "block" : name.parentNode.parentNode.style.display="none";
+    });
+  }
+
+
