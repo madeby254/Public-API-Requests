@@ -147,3 +147,13 @@ function searchFilter() {
       });
      }
     }
+
+    // Added a click event 
+
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', e => {
+          const currCard = e.currentTarget;
+          const currName = currCard.querySelector('.card-name').innerText.toLowerCase();
+          modalMatch(currName);
+        });
+      });
