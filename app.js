@@ -3,6 +3,9 @@
 // Created the necessary const
 const randUserUrl = 'https://randomuser.me/api/';
 const groupNum = "10"
+const randGroupUrl = randUserUrl+`/?nat=au,us,dk,fr,gb&lego&results=${groupNum}`;
+const searchContainer = document.querySelector('.search-container');
+const gallery = document.getElementById('gallery');
 
 
 // Fecth Functions
