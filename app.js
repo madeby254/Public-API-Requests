@@ -123,3 +123,7 @@ function searchFilter() {
           modalDiv.style.display="none";
         });
   }
+
+  // Interaction handler
+
+  
