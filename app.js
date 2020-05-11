@@ -139,10 +139,7 @@ function searchFilter() {
       return nameArr;
     };
     const modalNameArr = createModalNameArr();
-  
-    /*Match to modal profiles to names
-    @params {var} findName - name variable to match with modal
-      */
+  // Function to match 
      function modalMatch(findName) {
       modals.forEach(modal => {
         const modalName = modal.querySelector('#name').innerText
