@@ -157,3 +157,7 @@ function searchFilter() {
           modalMatch(currName);
         });
       });
+
+      // added close button modal
+
+      
