@@ -128,8 +128,7 @@ function searchFilter() {
 
   function modalHandler() {
     const modals = document.querySelectorAll('.modal-container');
-    /* from modal profiles 
-      */
+    
     function createModalNameArr() {
       let nameArr = [];
       modals.forEach(modal => {
