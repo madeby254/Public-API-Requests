@@ -2,7 +2,7 @@
 
 // Created and Empty Array for Users
 
-const users = [];
+
 
 
 // Fecth Functions
