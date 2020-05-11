@@ -2,7 +2,7 @@
 
 // Created the necessary const
 const randUserUrl = 'https://randomuser.me/api/';
-
+const groupNum = "10"
 
 
 // Fecth Functions
