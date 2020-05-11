@@ -16,3 +16,36 @@ async function fetchData(url) {
       console.log('Looks like there was a problem getting data!',error);
     }
   }
+
+  // Creats a profile 
+
+  async function getRandUsers(url) {
+    try {
+    let userData = await fetchData(url);
+    let profiles = await Promise.all(userData.map( 
+      async(person) => {
+        let image = person.picture.large;
+        let name = `${person.name.first} ${person.name.last}`;
+        let email = person.email;
+        let location = `${person.location.city}, ${person.location.state}`;
+        let phone = person.cell;
+        let address = `${person.location.street}, ${person.location.state}, ${person.location.postcode}`;
+        let dob = person.dob.date;
+        dob = dob.toString().slice(0,10);
+        dob = dob.slice(4) + "-" +dob.slice(0, 4);
+        dob = dob.substring(1);
+        return {
+          image,
+          name,
+          email,
+          location,
+          phone,
+          address,
+          dob
+        };
+      }));
+      return profiles;
+    } catch(error) {
+      console.log('Looks like there was a problem getting user profiles!',error);
+    }
+  }
