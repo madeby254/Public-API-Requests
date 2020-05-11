@@ -128,7 +128,7 @@ function searchFilter() {
 
   function modalHandler() {
     const modals = document.querySelectorAll('.modal-container');
-    
+    // Create an array of names
     function createModalNameArr() {
       let nameArr = [];
       modals.forEach(modal => {
