@@ -249,7 +249,8 @@ header h1 {
 
     .card:hover {
         background: rgba(255, 255, 255, 1);
-        border: 1px solid rgba(50, 50, 50, 0.9);
+        border: 3px solid rgba(50, 50, 50, 0.9);
+
     }
 
     .card:hover .card-text {
