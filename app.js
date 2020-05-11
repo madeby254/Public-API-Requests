@@ -126,4 +126,27 @@ function searchFilter() {
 
   // Interaction handler
 
+  function modalHandler() {
+    const modals = document.querySelectorAll('.modal-container');
+    /*Create an array of names from modal profiles 
+      */
+    function createModalNameArr() {
+      let nameArr = [];
+      modals.forEach(modal => {
+        const modalName= modal.querySelector('#name').innerText.toLowerCase();
+        nameArr.push(modalName);
+      });
+      return nameArr;
+    };
+    const modalNameArr = createModalNameArr();
+  
+    /*Match to modal profiles to names
+    @params {var} findName - name variable to match with modal
+      */
+     function modalMatch(findName) {
+      modals.forEach(modal => {
+        const modalName = modal.querySelector('#name').innerText
+        findName===modalName ? modal.style.display='block'  : modal.style.display = 'none';
+      });
+     }
   
