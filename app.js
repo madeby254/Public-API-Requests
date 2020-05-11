@@ -215,3 +215,11 @@ document.querySelectorAll('#modal-next').forEach(nxtModalBtn => {
  
 // Called the necessary functions 
 
+getRandUsers(randGroupUrl)
+  .then(generateHTML)
+  .then(modalHandler)
+  .then(searchFilter)
+  .catch(err => {
+    gallery.innerHTML = '<h3>Something went wrong...</h3>';
+    console.error(err);
+  });
