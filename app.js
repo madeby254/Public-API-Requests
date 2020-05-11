@@ -1,6 +1,6 @@
 
 
-// Created and Empty Array for Users
+// Created the necessary const
 
 
 
