@@ -186,7 +186,7 @@ document.querySelectorAll('#modal-prev').forEach(prevModalBtn => {
           prevName = modalNameArr[modalNameArr.length-1];
         }
       }
-//find modal that matches previous name and display
-modalMatch( prevName);
-})
-})
+//find  matches previous name and display
+        modalMatch( prevName);
+        })
+        })
