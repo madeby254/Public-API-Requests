@@ -1,7 +1,7 @@
 
 
 // Created the necessary const
-
+const randUserUrl = 'https://randomuser.me/api/';
 
 
 
