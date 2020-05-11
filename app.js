@@ -169,3 +169,24 @@ function searchFilter() {
           modal.style.display = 'none';
         })
       })
+
+      // Exceeds click event to back button and match modal
+
+
+document.querySelectorAll('#modal-prev').forEach(prevModalBtn => {
+    prevModalBtn.addEventListener('click', e => {
+      const currCard = e.currentTarget.parentNode.parentNode;
+      let currName = currCard.querySelector('#name').innerText.toLowerCase();
+      //find the previous name
+      let prevName = "";
+      for(i =0; i < modalNameArr.length; i++) {
+        if(currName===modalNameArr[i]&&i!=0) {
+          prevName = modalNameArr[i-1]
+        } else if(currName===modalNameArr[i]&&i===0){ 
+          prevName = modalNameArr[modalNameArr.length-1];
+        }
+      }
+//find modal that matches previous name and display
+modalMatch( prevName);
+})
+})
