@@ -59,4 +59,17 @@ async function fetchData(url) {
     });
   }
 
+// Searches Filter
 
+function searchFilter() {
+    let searchInput = document.getElementById('search-input');
+    let searchBtn = document.getElementById('search-submit');
+    searchInput.addEventListener('keyup', (e) => {
+      let nameInput =searchInput.value.toLowerCase();
+      filterCardNames(nameInput);
+    });
+    searchBtn.addEventListener('click', (e)=> {
+      let nameInput =searchInput.value.toLowerCase();
+      filterNames(nameInput);
+    });
+  }
