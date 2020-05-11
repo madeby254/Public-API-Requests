@@ -160,4 +160,9 @@ function searchFilter() {
 
       // added close button modal
 
-      
+      document.querySelectorAll('#modal-close-btn').forEach(closeModalBtn => {
+        closeModalBtn.addEventListener('click', e => {
+          let modal = e.currentTarget.parentNode.parentNode;
+          modal.style.display = 'none';
+        })
+      })
