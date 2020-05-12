@@ -173,7 +173,7 @@ function searchFilter() {
       // Exceeds click event to back button and match modal
 
 
-document.querySelectorAll('#modal-prev').forEach(prevModalBtn => {
+document.querySelectorAll('modal-prev').forEach(prevModalBtn => {
     prevModalBtn.addEventListener('click', e => {
       const currCard = e.currentTarget.parentNode.parentNode;
       let currName = currCard.querySelector('#name').innerText.toLowerCase();
