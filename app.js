@@ -223,3 +223,5 @@ getRandUsers(randGroupUrl)
     gallery.innerHTML = '<h3>Something went wrong...</h3>';
     console.error(err);
   });
+
+  //
