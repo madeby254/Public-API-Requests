@@ -77,7 +77,7 @@ function searchFilter() {
     });
   }
 
-  function addEventListenre() {
+  function Listner() {
     // DOM
     const cards = document.querySelectorAll('div.card');
     const modal = document.querySelectorAll('div.modal-container');
@@ -185,27 +185,27 @@ function searchFilter() {
       
   // Interaction handler
 
-  function modalHandler() {
-    const modals = document.querySelectorAll('.modal-container');
-    // Create an array of names
-    function createModalNameArr() {
-      let nameArr = [];
-      modals.forEach(modal => {
-        const modalName= modal.querySelector('#name').innerText.toLowerCase();
-        nameArr.push(modalName);
-      });
-      return nameArr;
-    };
-    const modalNameArr = createModalNameArr();
+  // function modalHandler() {
+  //   const modals = document.querySelectorAll('.modal-container');
+  //   // Create an array of names
+  //   function createModalNameArr() {
+  //     let nameArr = [];
+  //     modals.forEach(modal => {
+  //       const modalName= modal.querySelector('#name').innerText.toLowerCase();
+  //       nameArr.push(modalName);
+  //     });
+  //     return nameArr;
+  //   };
+  //   const modalNameArr = createModalNameArr();
 
-  // Function to match 
-     function modalMatch(findName) {
-      modals.forEach(modal => {
-        const modalName = modal.querySelector('#name').innerText
-        findName===modalName ? modal.style.display='block'  : modal.style.display = 'none';
-      });
-     }
-    }
+  // // Function to match 
+  //    function modalMatch(findName) {
+  //     modals.forEach(modal => {
+  //       const modalName = modal.querySelector('#name').innerText
+  //       findName===modalName ? modal.style.display='block'  : modal.style.display = 'none';
+  //     });
+  //    }
+  //   }
 
     // Added a click event 
 
@@ -281,7 +281,7 @@ getRandUsers(randGroupUrl)
   .then(generateHTML)
   .then(modalHandler)
   .then(searchFilter)
-  .then(addEventListenre)
+  .then(Listner)
   .catch(err => {
     gallery.innerHTML = '<h3>Something went wrong...</h3>';
     console.error(err);
