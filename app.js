@@ -220,6 +220,33 @@ document.querySelectorAll('modal-prev').forEach(prevModalBtn => {
 //      })
 //    })
 
+document.querySelectorAll('#modal-next').forEach(nxtModalBtn => {
+  nxtModalBtn.addEventListener('click', e => {
+     const currCard = e.currentTarget.parentNode.parentNode;
+     let currName = currCard.querySelector('#name').innerText.toLowerCase();
+     const modals = document.querySelectorAll('.modal-container');
+     //create an array of names from modal profiles and find the current name
+     let nameArr = [];
+     modals.forEach(modal => {
+       const modalName= modal.querySelector('#name').innerText.toLowerCase();
+       nameArr.push(modalName);
+     });
+     //find the next name
+     let nextName = "";
+     for(i =0; i < nameArr.length; i++) {
+       if(currName===nameArr[i]&&i!=0) {
+         nextName = nameArr[i+1]
+       } else if(currName===nameArr[i]&&i===nameArr[nameArr.length-1]){ 
+         nextName = nameArr[0];
+       }
+     }
+     //find modal that matches previous name and display
+     modals.forEach(modal => {
+       const modalName= modal.querySelector('#name').innerText.toLowerCase();
+       nextName===modalName ? modal.style.display='block'  : modal.style.display = 'none';
+     })
+   })
+ })
 
  
 // Called  all the necessary functions 
