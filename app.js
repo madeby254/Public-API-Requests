@@ -77,6 +77,61 @@ function searchFilter() {
     });
   }
 
+  function addEventListenre() {
+    // DOM
+    const cards = document.querySelectorAll('div.card');
+    const modal = document.querySelectorAll('div.modal-container');
+    const btnPrev = document.querySelectorAll('.modal-prev');
+    const btnNext = document.querySelectorAll('.modal-next');
+
+    // Open modal when card is clicked
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].addEventListener('click', (e) => {
+        let index = Array.prototype.indexOf.call(cards, e.currentTarget);
+        modal[index].style.display = '';
+      })
+    }
+
+
+    // Prev button to show previous modal
+    for (let i = 0; i < modal.length; i++) {
+      btnPrev[i].addEventListener('click', (e) => {
+        const modalIndexPrev = Array.prototype.indexOf.call(btnPrev, e.currentTarget);
+
+        if (modalIndexPrev >= 1) {
+          modal[modalIndexPrev].style.display = 'none';
+          modal[modalIndexPrev - 1].style.display = ''; 
+        } else {
+          modal[modalIndexPrev].style.display = 'none';
+        }
+      })
+
+      // Next button, to show next modal 
+      btnNext[i].addEventListener('click', (e) => {
+        const modalIndexNext = Array.prototype.indexOf.call(btnNext, e.currentTarget);
+
+        if (modalIndexNext <= 10) {
+          modal[modalIndexNext].style.display = 'none';
+          modal[modalIndexNext + 1].style.display = ''; 
+        } else {
+          modal[modalIndexNext].style.display = 'none';
+        }
+      })
+    }
+
+    // Close modal when close button is clicked
+    for (var j = 0; j < modal.length; j++) {
+      modal[j].addEventListener('click', (e) => {
+        if (e.target.className === 'modal-close-btn' || e.target.tagName === 'STRONG') {
+          let indexofClose = Array.prototype.indexOf.call(modal, e.currentTarget);
+          modal[indexofClose].style.display = 'none';
+        }  
+      })
+    }
+
+  }
+
+
 
   // Generate HTML for profile 
 
@@ -201,53 +256,24 @@ document.querySelectorAll('modal-prev').forEach(prevModalBtn => {
 // Added for forward Button and next Button
 
 
-// document.querySelectorAll('#modal-next').forEach(nxtModalBtn => {
-//     nxtModalBtn.addEventListener('click', e => {
-//        const currCard = e.currentTarget.parentNode.parentNode;
-//        let currName = currCard.querySelector('#name').innerText.toLowerCase();
-//        //create an array of names from modal profiles and find the current name
-//        //find the next name
-//        let nextName = "";
-//        for(i =0; i < modalNameArr.length; i++) {
-//          if(currName===modalNameArr[i]&&i!=modalNameArr.length-1) {
-//            nextName = modalNameArr[i+1];
-//          } else if(currName===modalNameArr[i]&&i===modalNameArr.length-1){ 
-//            nextName = modalNameArr[0];
-//          }
-//        }
-//        //find modal that matches next name and display
-//        modalMatch(nextName);
-//      })
-//    })
-
 document.querySelectorAll('#modal-next').forEach(nxtModalBtn => {
-  nxtModalBtn.addEventListener('click', e => {
-     const currCard = e.currentTarget.parentNode.parentNode;
-     let currName = currCard.querySelector('#name').innerText.toLowerCase();
-     const modals = document.querySelectorAll('.modal-container');
-     //create an array of names from modal profiles and find the current name
-     let nameArr = [];
-     modals.forEach(modal => {
-       const modalName= modal.querySelector('#name').innerText.toLowerCase();
-       nameArr.push(modalName);
-     });
-     //find the next name
-     let nextName = "";
-     for(i =0; i < nameArr.length; i++) {
-       if(currName===nameArr[i]&&i!=0) {
-         nextName = nameArr[i+1]
-       } else if(currName===nameArr[i]&&i===nameArr[nameArr.length-1]){ 
-         nextName = nameArr[0];
+    nxtModalBtn.addEventListener('click', e => {
+       const currCard = e.currentTarget.parentNode.parentNode;
+       let currName = currCard.querySelector('#name').innerText.toLowerCase();
+       //create an array of names from modal profiles and find the current name
+       //find the next name
+       let nextName = "";
+       for(i =0; i < modalNameArr.length; i++) {
+         if(currName===modalNameArr[i]&&i!=modalNameArr.length-1) {
+           nextName = modalNameArr[i+1];
+         } else if(currName===modalNameArr[i]&&i===modalNameArr.length-1){ 
+           nextName = modalNameArr[0];
+         }
        }
-     }
-     //find modal that matches previous name and display
-     modals.forEach(modal => {
-       const modalName= modal.querySelector('#name').innerText.toLowerCase();
-       nextName===modalName ? modal.style.display='block'  : modal.style.display = 'none';
+       //find modal that matches next name and display
+       modalMatch(nextName);
      })
    })
- })
-
  
 // Called  all the necessary functions 
 
@@ -255,6 +281,7 @@ getRandUsers(randGroupUrl)
   .then(generateHTML)
   .then(modalHandler)
   .then(searchFilter)
+  .then(addEventListenre)
   .catch(err => {
     gallery.innerHTML = '<h3>Something went wrong...</h3>';
     console.error(err);
