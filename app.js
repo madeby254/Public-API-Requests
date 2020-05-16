@@ -45,7 +45,7 @@ async function fetchData(url) {
         let email = person.email;
         let location = `${person.location.city}, ${person.location.state}`;
         let phone = formatPhoneNumber(person.cell);
-        let address = `${person.location.street}, ${person.location.state}, ${person.location.postcode}`;
+        let address = `${person.location.street.number},${person.location.street.name},${person.location.state}, ${person.location.postcode}`;
         let dob = person.dob.date;
         dob = dob.toString().slice(0,10);
         dob = dob.slice(4) + "-" +dob.slice(0, 4);
