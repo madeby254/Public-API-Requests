@@ -90,6 +90,8 @@ function searchFilter() {
     });
   }
 
+  // Added function for the modal 
+
   function Listner() {
   
     const cards = document.querySelectorAll('div.card');
