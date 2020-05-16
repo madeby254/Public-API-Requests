@@ -7,11 +7,13 @@ const randGroupUrl = randUserUrl+`/?nat=au,us,dk,fr,gb&results=${groupNum}`;
 const searchContainer = document.querySelector('.search-container');
 const gallery = document.getElementById('gallery');
 
+// Function to Format Phone Numbers using Regex 
+
 function formatPhoneNumber(phoneNumberString) {
-  var cleaned = ('' + phoneNumberString).replace(/\D/g, '')
-  var match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/)
+  let cleaned = ('' + phoneNumberString).replace(/\D/g, '')
+  let match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/)
   if (match) {
-    var intlCode = (match[1] ? '+1 ' : '')
+    let intlCode = (match[1] ? '+1 ' : '')
     return [intlCode, '(', match[2], ') ', match[3], '-', match[4]].join('')
   }
   return null
@@ -96,7 +98,7 @@ function searchFilter() {
     const btnNext = document.querySelectorAll('.modal-next');
 
     // Open modal when card is clicked
-    for (var i = 0; i < cards.length; i++) {
+    for (let i = 0; i < cards.length; i++) {
       cards[i].addEventListener('click', (e) => {
         let index = Array.prototype.indexOf.call(cards, e.currentTarget);
         modal[index].style.display = '';
@@ -131,7 +133,7 @@ function searchFilter() {
     }
 
     // Close modal when close button is clicked
-    for (var j = 0; j < modal.length; j++) {
+    for (let j = 0; j < modal.length; j++) {
       modal[j].addEventListener('click', (e) => {
         if (e.target.className === 'modal-close-btn' || e.target.tagName === 'STRONG') {
           let indexofClose = Array.prototype.indexOf.call(modal, e.currentTarget);
