@@ -220,34 +220,6 @@ function searchFilter() {
      }
     }
 
-      // added close button modal
-
-      document.querySelectorAll('#modal-close-btn').forEach(closeModalBtn => {
-        closeModalBtn.addEventListener('click', e => {
-          let modal = e.currentTarget.parentNode.parentNode;
-          modal.style.display = 'none';
-        })
-      })
-
-
-document.querySelectorAll('#modal-next').forEach(nxtModalBtn => {
-    nxtModalBtn.addEventListener('click', e => {
-       const currCard = e.currentTarget.parentNode.parentNode;
-       let currName = currCard.querySelector('#name').innerText.toLowerCase();
-       //create an array of names from modal profiles and find the current name
-       //find the next name
-       let nextName = "";
-       for(i =0; i < modalNameArr.length; i++) {
-         if(currName===modalNameArr[i]&&i!=modalNameArr.length-1) {
-           nextName = modalNameArr[i+1];
-         } else if(currName===modalNameArr[i]&&i===modalNameArr.length-1){ 
-           nextName = modalNameArr[0];
-         }
-       }
-       //find modal that matches next name and display
-       modalMatch(nextName);
-     })
-   })
  
 // Called  all the necessary functions 
 
