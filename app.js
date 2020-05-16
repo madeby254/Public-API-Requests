@@ -92,7 +92,7 @@ function searchFilter() {
 
   // Added function for the modal 
 
-  function Listner() {
+  function Listener() {
   
     const cards = document.querySelectorAll('div.card');
     const modal = document.querySelectorAll('div.modal-container');
@@ -229,7 +229,7 @@ getRandUsers(randGroupUrl)
   .then(generateHTML)
   .then(modalHandler)
   .then(searchFilter)
-  .then(Listner)
+  .then(Listener)
   .catch(err => {
     gallery.innerHTML = '<h3>Something went wrong...</h3>';
     console.error(err);
