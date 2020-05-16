@@ -182,7 +182,6 @@ function searchFilter() {
                                 <p class="modal-text cap">${person.location}</p>
                                 <hr>
                                 <p class="modal-text">${person.phone}</p>
-                                <p class="modal-text">${person.street}</p>
                                 <p class="modal-text cap">${person.address}</p>
                                 <p class="modal-text">Birthday: ${person.dob}</p>
                 </div>
