@@ -185,43 +185,27 @@ function searchFilter() {
       
   // Interaction handler
 
-  // function modalHandler() {
-  //   const modals = document.querySelectorAll('.modal-container');
-  //   // Create an array of names
-  //   function createModalNameArr() {
-  //     let nameArr = [];
-  //     modals.forEach(modal => {
-  //       const modalName= modal.querySelector('#name').innerText.toLowerCase();
-  //       nameArr.push(modalName);
-  //     });
-  //     return nameArr;
-  //   };
-  //   const modalNameArr = createModalNameArr();
-
-  // // Function to match 
-  //    function modalMatch(findName) {
-  //     modals.forEach(modal => {
-  //       const modalName = modal.querySelector('#name').innerText
-  //       findName===modalName ? modal.style.display='block'  : modal.style.display = 'none';
-  //     });
-  //    }
-  //   }
-
-    // Added a click event 
-
-    document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('click', e => {
-          const currCard = e.currentTarget;
-          const currName = currCard.querySelector('.card-name').innerText.toLowerCase();
-          modals.forEach(modal => {
-            const modalName = modal.querySelector('#name').innerText
-            currName===modalName ? modal.style.display='block'  : modal.style.display = 'none';
-          });
-          modalMatch(currName);
-        });
+  function modalHandler() {
+    const modals = document.querySelectorAll('.modal-container');
+    // Create an array of names
+    function createModalNameArr() {
+      let nameArr = [];
+      modals.forEach(modal => {
+        const modalName= modal.querySelector('#name').innerText.toLowerCase();
+        nameArr.push(modalName);
       });
+      return nameArr;
+    };
+    const modalNameArr = createModalNameArr();
 
-      
+  // Function to match 
+     function modalMatch(findName) {
+      modals.forEach(modal => {
+        const modalName = modal.querySelector('#name').innerText
+        findName===modalName ? modal.style.display='block'  : modal.style.display = 'none';
+      });
+     }
+    }
 
       // added close button modal
 
