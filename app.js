@@ -127,7 +127,7 @@ function searchFilter() {
         });
   }
 
-      containerDiv.innerHTML=html
+      
   // Interaction handler
 
   function modalHandler() {
