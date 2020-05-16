@@ -213,7 +213,7 @@ document.querySelectorAll('#modal-next').forEach(nxtModalBtn => {
      })
    })
  
-// Called the necessary functions 
+// Called  all the necessary functions 
 
 getRandUsers(randGroupUrl)
   .then(generateHTML)
