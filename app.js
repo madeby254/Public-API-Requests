@@ -158,9 +158,15 @@ function searchFilter() {
         card.addEventListener('click', e => {
           const currCard = e.currentTarget;
           const currName = currCard.querySelector('.card-name').innerText.toLowerCase();
+          modals.forEach(modal => {
+            const modalName = modal.querySelector('#name').innerText
+            currName===modalName ? modal.style.display='block'  : modal.style.display = 'none';
+          });
           modalMatch(currName);
         });
       });
+
+      
 
       // added close button modal
 
